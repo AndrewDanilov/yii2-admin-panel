@@ -10,7 +10,7 @@ use andrewdanilov\adminpanel\Menu;
 
 <div class="page-left">
 	<div class="sidebar-heading"><?= $siteName ?></div>
-	<?= Menu::widget(['options' => ['class' => 'bg-gray-900 sidebar-dark', 'id' => 'accordionSidebar'], 'items' => [
+	<?= Menu::widget(['items' => [
 		['label' => 'Dashboard', 'url' => ['site/index'], 'icon' => 'tachometer-alt'],
 		[],
 		['label' => 'Объявления'],
