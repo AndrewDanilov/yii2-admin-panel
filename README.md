@@ -1,6 +1,6 @@
 Admin Panel
 ===========
-SB admin panel for backend
+Simple Admin Panel
 
 Installation
 ------------
@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require andrewdanilov/yii2-sbadmin "dev-master"
+composer require andrewdanilov/yii2-admin-panel "dev-master"
 ```
 
 or add
 
 ```
-"andrewdanilov/yii2-sbadmin": "dev-master"
+"andrewdanilov/yii2-admin-panel": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -25,4 +25,4 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-todo
+Copy dir src/views to your backend views location, then modify in on your own.
