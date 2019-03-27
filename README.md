@@ -26,3 +26,20 @@ Usage
 -----
 
 Copy dir src/views to your backend views location, then modify in on your own.
+
+Additionaly you can use FontawesomeActionColumn class in your grids instead of default ActionColumn, to replace default Bootstrap action icons with corresponding Fontawesome icons.
+
+```php
+<?= GridView::widget([
+	'dataProvider' => $dataProvider,
+	'filterModel' => $searchModel,
+	'columns' => [
+		'id',
+		'name',
+		[
+			'class' => 'andrewdanilov\adminpanel\FontawesomeActionColumn',
+			'template' => '{update}{delete}',
+		],
+	],
+]); ?>
+```

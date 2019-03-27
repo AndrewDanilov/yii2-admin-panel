@@ -9,10 +9,30 @@
 namespace andrewdanilov\adminpanel;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 class FontawesomeActionColumn extends \yii\grid\ActionColumn
 {
+	/**
+	 * @inheritdoc
+	 */
+	public function init()
+	{
+		$contentOptionsClass = ArrayHelper::getValue($this->contentOptions, 'class');
+		if ($contentOptionsClass) {
+			$contentOptionsClass = explode(' ', $contentOptionsClass);
+		} else {
+			$contentOptionsClass = [];
+		}
+		if (!in_array('wh-nowrap', $contentOptionsClass)) {
+			$contentOptionsClass[] = 'wh-nowrap';
+		}
+		$this->contentOptions['class'] = implode(' ', $contentOptionsClass);
+
+		parent::init();
+	}
+
 	/**
 	 * Initializes the default button rendering callbacks.
 	 */
