@@ -62,11 +62,8 @@ class Menu extends \yii\base\Widget
 
 			} elseif (isset($item['label'])) {
 
-				$labelOptions = $item['labelOptions'] ?: [];
-				$label = Html::tag('span', $item['label'], $labelOptions);
-
 				$itemOptions['class'] = self::addCssClass('sidebar-header', $itemOptions['class']);
-				$itemContent = $label;
+				$itemContent = Html::tag('div', $item['label'], $itemOptions);
 
 			} else {
 

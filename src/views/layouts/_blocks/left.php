@@ -1,6 +1,6 @@
 <?php
 
-use andrewdanilov\sbadmin\Menu;
+use andrewdanilov\adminpanel\Menu;
 
 /* @var $this \yii\web\View */
 /* @var $siteName string */
