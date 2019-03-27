@@ -25,8 +25,8 @@ class FontawesomeActionColumn extends \yii\grid\ActionColumn
 		} else {
 			$contentOptionsClass = [];
 		}
-		if (!in_array('wh-nowrap', $contentOptionsClass)) {
-			$contentOptionsClass[] = 'wh-nowrap';
+		if (!in_array('action-buttons', $contentOptionsClass)) {
+			$contentOptionsClass[] = 'action-buttons';
 		}
 		$this->contentOptions['class'] = implode(' ', $contentOptionsClass);
 
