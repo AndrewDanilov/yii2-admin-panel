@@ -21,7 +21,7 @@ $fieldOptions = [
 	<!-- Outer Row -->
 	<div class="row justify-content-center">
 
-		<div class="col-xl-5 col-lg-6 col-md-9">
+		<div class="col-xs-8 col-sm-6 col-md-4">
 
 			<div class="card o-hidden border-0 shadow-lg my-5">
 				<div class="card-body p-0">
