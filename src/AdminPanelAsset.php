@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class AdminPanelAsset extends AssetBundle
 {
-	public $sourcePath = '@vendor/andrewdanilov/yii2-admin-panel/src/web';
+	public $sourcePath = '@andrewdanilov/adminpanel/web';
 	public $css = [
 		'css/style.css',
 	];
