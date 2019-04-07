@@ -19,6 +19,6 @@ use andrewdanilov\adminpanel\Menu;
 		['label' => 'Бренды', 'url' => ['brand/index'], 'icon' => 'leaf'],
 		[],
 		['label' => 'Система'],
-		['label' => 'Аккаунты', 'url' => ['account/index'], 'icon' => 'users'],
+		['label' => 'Пользователи', 'url' => ['user/index'], 'icon' => 'users'],
 	]]) ?>
 </div>
