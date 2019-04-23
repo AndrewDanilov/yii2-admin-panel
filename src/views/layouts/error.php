@@ -23,7 +23,7 @@ AdminPanelAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="page-wrapper flex-center">
+<div class="page-wrapper justify-content-center align-content-center">
 	<?= $content ?>
 </div>
 
