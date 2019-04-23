@@ -23,7 +23,9 @@ AdminPanelAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<div class="page-wrapper flex-center">
 	<?= $content ?>
+</div>
 
 <?php $this->endBody() ?>
 </body>
