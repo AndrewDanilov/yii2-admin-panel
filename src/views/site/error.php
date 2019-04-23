@@ -12,4 +12,3 @@ $this->title = 'Error 404. Page Not Found.';
 	<p>It looks like you found a glitch in the matrix...</p>
 	<a href="<?= Url::to(['index']) ?>">&larr; Back to Dashboard</a>
 </div>
-
