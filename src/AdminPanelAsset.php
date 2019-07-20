@@ -15,6 +15,6 @@ class AdminPanelAsset extends AssetBundle
 	public $depends = [
 		'yii\web\JqueryAsset',
 		'yii\bootstrap\BootstrapAsset',
-		'rmrevin\yii\fontawesome\CdnFreeAssetBundle',
+		'andrewdanilov\gridtools\GridToolsAsset',
 	];
 }

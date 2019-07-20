@@ -37,7 +37,7 @@ Additionaly you can use FontawesomeActionColumn class in your grids instead of d
 		'id',
 		'name',
 		[
-			'class' => 'andrewdanilov\adminpanel\FontawesomeActionColumn',
+			'class' => 'andrewdanilov\gridtools\FontawesomeActionColumn',
 			'template' => '{update}{delete}',
 		],
 	],
