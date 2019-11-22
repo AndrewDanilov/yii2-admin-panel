@@ -1,6 +1,6 @@
 Admin Panel
 ===========
-Simple Admin Panel
+Simple Admin Panel template
 
 Installation
 ------------
