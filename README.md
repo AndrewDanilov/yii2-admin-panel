@@ -25,9 +25,9 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Copy dir src/views to your backend views location, then modify it on your own.
+Copy directory src/views to your backend views location, then modify templates in it to your needs.
 
-In backend config place 'user' section under 'components':
+In backend config place 'user' section inside 'components':
 
 ```php
 <?php
@@ -47,7 +47,7 @@ $config = [
 ];
 ```
 
-And than place 'controllerMap' section of your backend config:
+And then add 'controllerMap' section to your backend config:
 
 ```php
 <?php
