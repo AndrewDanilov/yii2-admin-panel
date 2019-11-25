@@ -35,7 +35,7 @@ $fieldOptions = [
 		],
 	]) ?>
 
-	<?= $form->field($model, 'email', $fieldOptions)
+	<?= $form->field($model, 'username', $fieldOptions)
 		->label(false)
 		->textInput([
 			'type' => 'email',
@@ -53,6 +53,10 @@ $fieldOptions = [
 			'class' => 'form-control form-control-user',
 			'placeholder' => 'Password',
 		])
+	?>
+
+	<?= $form->field($model, 'rememberMe', $fieldOptions)
+		->checkbox()
 	?>
 
 	<hr>

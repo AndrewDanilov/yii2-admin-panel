@@ -32,10 +32,10 @@ In backend config place 'user' section inside 'components':
 ```php
 <?php
 $config = [
-    // ...
-    'components' => [
-        // ...
-        'user' => [
+	// ...
+	'components' => [
+		// ...
+		'user' => [
 			'class' => 'yii\web\User',
 			'identityClass' => 'common\models\User',
 			'accessChecker' => 'andrewdanilov\adminpanel\components\AccessChecker',
@@ -43,7 +43,7 @@ $config = [
 			'identityCookie' => ['name' => '_identity-common', 'httpOnly' => true],
 			'loginUrl' => ['user/login'],
 		],
-    ],
+	],
 ];
 ```
 
@@ -52,16 +52,34 @@ And then add 'controllerMap' section to your backend config:
 ```php
 <?php
 $config = [
-    // ...
-    'controllerMap' => [
-        'user' => 'andrewdanilov\adminpanel\controllers\UserController',
-    ],
+	// ...
+	'controllerMap' => [
+		'user' => 'andrewdanilov\adminpanel\controllers\UserController',
+	],
 ];
 ```
 
-Additionaly you can use FontawesomeActionColumn class in your grids views instead of default ActionColumn, to replace default Bootstrap action icons with corresponding Fontawesome icons:
+To make access control on all yout admin pages working properly, you need to extend all your backend controllers from
+andrewdanilov\adminpanel\controllers\BackendController
 
 ```php
+<?php
+use andrewdanilov\adminpanel\controllers\BackendController;
+
+class AnyController extends BackendController
+{
+	// ...
+}
+```
+
+Additionaly you can use FontawesomeActionColumn class in your GridViews instead of default ActionColumn, to replace default Bootstrap action icons with corresponding Fontawesome icons:
+
+```php
+<?php
+/* @var $dataProvider \yii\data\ActiveDataProvider */
+/* @var $searchModel \yii\db\ActiveRecord */
+use yii\grid\GridView;
+?>
 <?= GridView::widget([
 	'dataProvider' => $dataProvider,
 	'filterModel' => $searchModel,
