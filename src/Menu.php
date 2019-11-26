@@ -28,7 +28,11 @@ class Menu extends \yii\base\Widget
 
 				$label = '';
 				if (isset($item['label'])) {
-					$labelOptions = $item['labelOptions'] ?: [];
+					if (!empty($item['labelOptions'])) {
+						$labelOptions = $item['labelOptions'];
+					} else {
+						$labelOptions = [];
+					}
 					$label = Html::tag('span', $item['label'], $labelOptions);
 				}
 
