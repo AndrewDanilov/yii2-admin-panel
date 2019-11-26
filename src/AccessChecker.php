@@ -1,5 +1,5 @@
 <?php
-namespace andrewdanilov\adminpanel\components;
+namespace andrewdanilov\adminpanel;
 
 use Yii;
 use yii\rbac\CheckAccessInterface;

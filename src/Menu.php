@@ -13,7 +13,11 @@ class Menu extends \yii\base\Widget
 	{
 		$result = [];
 		foreach ($this->items as $item) {
-			$itemOptions = $item['options'] ?: [];
+			if (!empty($item['options'])) {
+				$itemOptions = $item['options'];
+			} else {
+				$itemOptions = [];
+			}
 
 			if (isset($item['url'])) {
 

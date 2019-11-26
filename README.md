@@ -38,7 +38,7 @@ $config = [
 		'user' => [
 			'class' => 'yii\web\User',
 			'identityClass' => 'common\models\User',
-			'accessChecker' => 'andrewdanilov\adminpanel\components\AccessChecker',
+			'accessChecker' => 'andrewdanilov\adminpanel\AccessChecker',
 			'enableAutoLogin' => true,
 			'identityCookie' => ['name' => '_identity-common', 'httpOnly' => true],
 			'loginUrl' => ['user/login'],
