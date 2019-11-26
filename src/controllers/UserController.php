@@ -18,7 +18,7 @@ class UserController extends BackendController
 			return $this->goHome();
 		}
 		$loginForm = new LoginForm();
-		if ($loginForm->load(Yii::$app->request->post()) && $loginForm->validate() && Yii::$app->user->identityClass::login($loginForm)) {
+		if ($loginForm->load(Yii::$app->request->post()) && $loginForm->validate() && $loginForm->login()) {
 			return $this->goBack();
 		}
 		if (Yii::$app->getSession()->getFlash('error') == 'access-denied') {
