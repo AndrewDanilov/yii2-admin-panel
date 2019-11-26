@@ -36,6 +36,9 @@ class Menu extends \yii\base\Widget
 					$label = Html::tag('span', $item['label'], $labelOptions);
 				}
 
+				if (!isset($itemOptions['class'])) {
+					$itemOptions['class'] = '';
+				}
 				$itemOptions['class'] = self::addCssClass('list-group-item', $itemOptions['class']);
 				if (self::isItemActive($item)) {
 					$itemOptions['class'] = self::addCssClass('active', $itemOptions['class']);
@@ -44,11 +47,17 @@ class Menu extends \yii\base\Widget
 
 			} elseif (isset($item['label'])) {
 
+				if (!isset($itemOptions['class'])) {
+					$itemOptions['class'] = '';
+				}
 				$itemOptions['class'] = self::addCssClass('sidebar-header', $itemOptions['class']);
 				$itemContent = Html::tag('div', $item['label'], $itemOptions);
 
 			} else {
 
+				if (!isset($itemOptions['class'])) {
+					$itemOptions['class'] = '';
+				}
 				$itemOptions['class'] = self::addCssClass('sidebar-devider', $itemOptions['class']);
 				$itemContent = Html::tag('hr', null, $itemOptions);
 
@@ -59,6 +68,9 @@ class Menu extends \yii\base\Widget
 		}
 
 		$options = $this->options;
+		if (!isset($options['class'])) {
+			$options['class'] = '';
+		}
 		$options['class'] = self::addCssClass('list-group', $options['class']);
 		$html = Html::tag('div', implode("\n", $result), $options);
 		return $html;
