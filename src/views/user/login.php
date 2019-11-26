@@ -38,10 +38,8 @@ $fieldOptions = [
 	<?= $form->field($model, 'username', $fieldOptions)
 		->label(false)
 		->textInput([
-			'type' => 'email',
-			'id' => 'exampleInputEmail',
 			'class' => 'form-control form-control-user',
-			'placeholder' => 'Email',
+			'placeholder' => 'Username',
 		])
 	?>
 
@@ -49,7 +47,6 @@ $fieldOptions = [
 		->label(false)
 		->textInput([
 			'type' => 'password',
-			'id' => 'exampleInputPassword',
 			'class' => 'form-control form-control-user',
 			'placeholder' => 'Password',
 		])
