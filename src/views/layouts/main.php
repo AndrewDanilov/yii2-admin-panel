@@ -8,7 +8,16 @@ use andrewdanilov\adminpanel\AdminPanelAsset;
 
 AdminPanelAsset::register($this);
 
-$siteName = Yii::$app->params['siteName'] ?: 'AdminPanel';
+if (isset(Yii::$app->params['siteName'])) {
+	$siteName = Yii::$app->params['siteName'];
+} else {
+	$siteName = 'AdminPanel';
+}
+if (isset(Yii::$app->user->identity['username'])) {
+	$userName = Yii::$app->user->identity['username'];
+} else {
+	$userName = 'Guest';
+}
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/andrewdanilov/yii2-admin-panel/src');
 ?>
 <?php $this->beginPage() ?>
@@ -36,7 +45,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/andrewdanilo
 
 		<?= $this->render(
 			'_blocks/top',
-			['directoryAsset' => $directoryAsset]
+			['directoryAsset' => $directoryAsset, 'userName' => $userName]
 		) ?>
 
 		<?= $this->render(

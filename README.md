@@ -47,7 +47,9 @@ $config = [
 ];
 ```
 
-And then add 'controllerMap' section to your backend config:
+You can use your own access checker, therefore replace _accessChecker_ property value of _user_ component config above. Then copy __AccessChecker.php__ to your location and modify it, as you need.
+
+To use default extension's controllers add 'controllerMap' section to your backend config:
 
 ```php
 <?php
@@ -59,7 +61,7 @@ $config = [
 ];
 ```
 
-To make access control on all yout admin pages working properly, you need to extend all your backend controllers from
+To make access control on all your admin pages working properly, you need to extend all your backend controllers from
 andrewdanilov\adminpanel\controllers\BackendController
 
 ```php
