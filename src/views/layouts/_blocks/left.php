@@ -13,10 +13,9 @@ use andrewdanilov\adminpanel\Menu;
 	<?= Menu::widget(['items' => [
 		['label' => 'Dashboard', 'url' => ['/site/index'], 'icon' => 'tachometer-alt'],
 		[],
-		['label' => 'Объявления'],
-		['label' => 'Организации', 'url' => ['/organization/index'], 'icon' => 'building'],
-		['label' => 'Категории', 'url' => ['/category/index'], 'icon' => 'tags'],
-		['label' => 'Бренды', 'url' => ['/brand/index'], 'icon' => 'leaf'],
+		['label' => 'Блог'],
+		['label' => 'Новости', 'url' => ['/news/index'], 'icon' => ['symbol' => 'newspaper', 'type' => 'regular']],
+		['label' => 'Статьи', 'url' => ['/articles/index'], 'icon' => ['symbol' => 'newspaper', 'type' => 'solid']],
 		[],
 		['label' => 'Система'],
 		['label' => 'Пользователи', 'url' => ['/user/index'], 'icon' => 'users'],

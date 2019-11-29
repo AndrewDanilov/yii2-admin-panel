@@ -23,7 +23,23 @@ class Menu extends \yii\base\Widget
 
 				$icon = '';
 				if (isset($item['icon'])) {
-					$icon = Html::tag('i', null, ['class' => 'fa fa-' . $item['icon']]);
+					if (is_array($item['icon'])) {
+						if (isset($item['icon']['symbol'])) {
+							$class = 'fa-' . $item['icon']['symbol'];
+							if (!isset($item['icon']['type'])) {
+								$item['icon']['type'] = '';
+							}
+							switch ($item['icon']['type']) {
+								case 'regular': $class = 'far ' . $class; break;
+								case 'light': $class = 'fal ' . $class; break;
+								case 'solid': $class = 'fas ' . $class; break;
+								default: $class = 'fa ' . $class; break;
+							}
+							$icon = Html::tag('i', null, ['class' => $class]);
+						}
+					} else {
+						$icon = Html::tag('i', null, ['class' => 'fa fa-' . $item['icon']]);
+					}
 				}
 
 				$label = '';
@@ -72,8 +88,8 @@ class Menu extends \yii\base\Widget
 			$options['class'] = '';
 		}
 		$options['class'] = self::addCssClass('list-group', $options['class']);
-		$html = Html::tag('div', implode("\n", $result), $options);
-		return $html;
+
+		return Html::tag('div', implode("\n", $result), $options);
 	}
 
 	/**
