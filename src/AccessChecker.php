@@ -2,6 +2,7 @@
 namespace andrewdanilov\adminpanel;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\rbac\CheckAccessInterface;
 
 class AccessChecker implements CheckAccessInterface
@@ -15,13 +16,14 @@ class AccessChecker implements CheckAccessInterface
 	public function checkAccess($userId, $permissionName, $params = [])
 	{
 		if ($permissionName === 'admin') {
-			return true; // remove this and
-			             // add some data checking here instead of just returning true
-			//return Yii::$app->user->identityClass::find()->where([
-			//	'id' => $userId,
-			//	'name' => 'username', // check if user name is 'admin' for example
-			//	'status' => Yii::$app->user->identityClass::STATUS_ACTIVE,
-			//])->exists();
+			// Below is simple method of checking 'admin' permission.
+			// Replace it if you want something more complex.
+			$userClass = Yii::$app->user->identityClass;
+			return $userClass::find()->where([
+				'id' => $userId,
+				'username' => 'admin', // check if user name is 'admin' for example
+				'status' => $userClass::STATUS_ACTIVE,
+			])->exists();
 		}
 		return false;
 	}
