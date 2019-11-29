@@ -40,7 +40,7 @@ $config = [
 			'identityClass' => 'common\models\User',
 			'accessChecker' => 'andrewdanilov\adminpanel\AccessChecker',
 			'enableAutoLogin' => true,
-			'identityCookie' => ['name' => '_identity-common', 'httpOnly' => true],
+			'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
 			'loginUrl' => ['user/login'],
 		],
 	],
