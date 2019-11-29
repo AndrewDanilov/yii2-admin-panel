@@ -25,7 +25,7 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Copy directory src/views to your backend views location, then modify templates in it to your needs.
+Copy directory src/views to your backend views location, then modify these templates to your needs.
 
 In backend config place 'user' section inside 'components':
 
