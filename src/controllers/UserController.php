@@ -23,7 +23,7 @@ class UserController extends BackendController
 		}
 		if (Yii::$app->getSession()->getFlash('error') == 'access-denied') {
 			// if we here because of access denied
-			$loginForm->addError('email', 'Access denied for this user.');
+			$loginForm->addError('username', 'Access denied for this user.');
 		}
 		$this->layout = '//login';
 		return $this->render('login', [
