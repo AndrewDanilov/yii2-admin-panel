@@ -47,7 +47,7 @@ $config = [
 ];
 ```
 
-You can use your own access checker, therefore replace _accessChecker_ property value of _user_ component config above. Then copy __AccessChecker.php__ to your location and modify it, as you need.
+Instead of default you can use your own access checker, therefore replace _accessChecker_ property value of _user_ component config above. Then copy __AccessChecker.php__ to your location and modify it, as you need. Do not forget to replace namespace definition.
 
 To use default extension's controllers add 'controllerMap' section to your backend config:
 
