@@ -30,7 +30,6 @@ Copy directory src/views to your backend views location, then modify these templ
 In backend config place 'user' section inside 'components':
 
 ```php
-<?php
 $config = [
 	// ...
 	'components' => [
@@ -52,7 +51,6 @@ Instead of default you can use your own access checker, therefore replace _acces
 To use default extension's controllers add 'controllerMap' section to your backend config:
 
 ```php
-<?php
 $config = [
 	// ...
 	'controllerMap' => [
@@ -65,7 +63,6 @@ To make access control on all your admin pages working properly, you need to ext
 andrewdanilov\adminpanel\controllers\BackendController
 
 ```php
-<?php
 use andrewdanilov\adminpanel\controllers\BackendController;
 
 class AnyController extends BackendController
@@ -74,10 +71,20 @@ class AnyController extends BackendController
 }
 ```
 
+To make work it properly your you must remove methods `behaviors` and `actions` from `AnyController` or extends this methods from parent class, just like so:
+
+```php
+public function actions()
+{
+	$actions = parent::actions();
+	$actions['error']['layout'] = 'error';
+	return $actions;
+}
+```
+
 Additionaly you can use FontawesomeActionColumn class in your GridViews instead of default ActionColumn, to replace default Bootstrap action icons with corresponding Fontawesome icons:
 
 ```php
-<?php
 /* @var $dataProvider \yii\data\ActiveDataProvider */
 /* @var $searchModel \yii\db\ActiveRecord */
 use yii\grid\GridView;
