@@ -71,7 +71,7 @@ class AnyController extends BackendController
 }
 ```
 
-To make work it properly your you must remove methods `behaviors` and `actions` from `AnyController` or extends this methods from parent class, just like so:
+To make work it properly you must remove methods `behaviors` and `actions` from `AnyController` or extends this methods from parent class, just like so:
 
 ```php
 public function actions()
