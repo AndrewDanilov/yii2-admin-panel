@@ -7,6 +7,6 @@
 
 <div class="page-footer">
 	Copyright &copy; 2014-<?=date("Y")?>&nbsp;
-	<a href="http://leadcode.ru" target="_blank">LeadCode</a>.
+	<a href="https://github.com/AndrewDanilov/" target="_blank">Andrew Danilov</a>.
 	All rights reserved.
 </div>
