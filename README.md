@@ -19,7 +19,15 @@ or add
 "andrewdanilov/yii2-admin-panel": "~1.0.0"
 ```
 
-to the require section of your `composer.json` file.
+to the `require` section of your `composer.json` file.
+
+Then run db migrations, to modify needed tables:
+
+```
+php yii migrate --migrationPath=@andrewdanilov/adminpanel/migrations
+```
+
+Do not forget to run migrations after extension updates too.
 
 
 Usage
@@ -36,7 +44,7 @@ $config = [
 		// ...
 		'user' => [
 			'class' => 'yii\web\User',
-			'identityClass' => 'common\models\User',
+			'identityClass' => 'andrewdanilov\adminpanel\models\User',
 			'accessChecker' => 'andrewdanilov\adminpanel\AccessChecker',
 			'enableAutoLogin' => true,
 			'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
@@ -46,7 +54,7 @@ $config = [
 ];
 ```
 
-Instead of default you can use your own access checker, therefore replace _accessChecker_ property value of _user_ component config above. Then copy __AccessChecker.php__ to your location and modify it, as you need. Do not forget to replace namespace definition.
+Instead of default you can use your own access checker or user identity class, therefore replace correspondent _accessChecker_ or _identityClass_ properties of _user_ component within backend config. Then copy __src/AccessChecker.php__ if you replacing access checker and __src/models/User.php__ if you replacing identity class, and place them to your own location. Modify it, as you need. Do not forget to replace namespace definition of duplicated classes.
 
 To use default extension's controllers add 'controllerMap' section to your backend config:
 
