@@ -3,7 +3,8 @@ namespace andrewdanilov\adminpanel\controllers;
 
 use Yii;
 use yii\web\Response;
-use andrewdanilov\adminpanel\LoginForm;
+use andrewdanilov\adminpanel\models\User;
+use andrewdanilov\adminpanel\models\LoginForm;
 
 class UserController extends BackendController
 {
@@ -40,5 +41,35 @@ class UserController extends BackendController
 	{
 		Yii::$app->user->logout();
 		return $this->goHome();
+	}
+
+	public function actionIndex()
+	{
+		$searchModel = new UserSearch;
+		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+		return $this->render('index', [
+			'searchModel' => $searchModel,
+			'dataProvider' => $dataProvider,
+		]);
+	}
+
+	public function actionUpdate($id=null)
+	{
+		if ($id === null) {
+			$model = new User();
+		} else {
+			$model = User::findOne(['id' => $id]);
+		}
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			return $this->redirect(['index']);
+		}
+		return $this->render('update', ['model' => $model]);
+	}
+
+	public function actionDelete($id)
+	{
+		User::findOne(['id' => $id])->delete();
+		return $this->redirect(['index']);
 	}
 }

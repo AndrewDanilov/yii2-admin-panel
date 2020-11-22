@@ -1,6 +1,6 @@
 Admin Panel
 ===========
-Simple Admin Panel template
+Simple Admin Panel template and user accounts manager
 
 Installation
 ------------
@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require andrewdanilov/yii2-admin-panel "~1.0.0"
+composer require andrewdanilov/yii2-admin-panel "~2.0.0"
 ```
 
 or add
 
 ```
-"andrewdanilov/yii2-admin-panel": "~1.0.0"
+"andrewdanilov/yii2-admin-panel": "~2.0.0"
 ```
 
 to the `require` section of your `composer.json` file.
@@ -35,7 +35,7 @@ Usage
 
 Copy directory `src/views` to your backend views location, then modify these templates to your needs.
 
-In backend config place 'user' section inside 'components':
+In backend config place (or replace) `user` section inside `components`:
 
 ```php
 $config = [
@@ -62,9 +62,22 @@ To use default extension's controllers add 'controllerMap' section to your backe
 $config = [
 	// ...
 	'controllerMap' => [
-		'user' => 'andrewdanilov\adminpanel\controllers\UserController',
+		'user' => [
+			'class' => 'andrewdanilov\adminpanel\controllers\UserController',
+			'viewPath' => '@backend/views', // your own views location
+		],
 	],
 ];
+```
+
+If you use own views (see instruction of using own views location above) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
+
+Default `UserController` already have CRUD methods for managing user accounts. Use this link to get access to them:
+
+```php
+use yii\helpers\Url;
+
+$userManagerUrl = Url::to(['/user']);
 ```
 
 To make access control on all your admin pages working properly, you need to extend all your backend controllers from
@@ -79,14 +92,21 @@ class AnyController extends BackendController
 }
 ```
 
-To make work it properly you must remove methods `behaviors` and `actions` from `AnyController` or extends this methods from parent class, just like so:
+To make work it properly you must remove methods `behaviors` and `actions` from `AnyController` or extends that methods from parent class, just like so:
 
 ```php
-public function actions()
+use andrewdanilov\adminpanel\controllers\BackendController;
+
+class AnyController extends BackendController
 {
-	$actions = parent::actions();
-	$actions['error']['layout'] = 'error';
-	return $actions;
+	// ...
+	public function actions()
+	{
+		$actions = parent::actions();
+		$actions['error']['layout'] = 'error';
+		return $actions;
+	}
+	// ...
 }
 ```
 

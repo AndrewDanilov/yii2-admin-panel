@@ -1,5 +1,5 @@
 <?php
-namespace andrewdanilov\adminpanel;
+namespace andrewdanilov\adminpanel\widgets;
 
 use Yii;
 use yii\helpers\Html;

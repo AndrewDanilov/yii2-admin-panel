@@ -1,8 +1,9 @@
 <?php
-namespace andrewdanilov\adminpanel;
+namespace andrewdanilov\adminpanel\models;
 
 use Yii;
 use yii\base\Model;
+use yii\web\IdentityInterface;
 
 /**
  * Login form
@@ -68,7 +69,10 @@ class LoginForm extends Model
 	protected function getUser()
 	{
 		if ($this->_user === null) {
-			$this->_user = Yii::$app->user->identityClass::findByUsername($this->username);
+			$identityClass = Yii::$app->user->identityClass;
+			if ($identityClass instanceof IdentityInterface) {
+				$this->_user = $identityClass::findByUsername($this->username);
+			}
 		}
 
 		return $this->_user;

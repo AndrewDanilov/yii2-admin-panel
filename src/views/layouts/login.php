@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use andrewdanilov\adminpanel\AdminPanelAsset;
+use andrewdanilov\adminpanel\assets\AdminPanelAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */

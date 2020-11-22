@@ -1,5 +1,5 @@
 <?php
-namespace andrewdanilov\adminpanel;
+namespace andrewdanilov\adminpanel\assets;
 
 use yii\web\AssetBundle;
 

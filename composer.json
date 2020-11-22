@@ -2,7 +2,7 @@
     "name": "andrewdanilov/yii2-admin-panel",
     "description": "Simple Admin Panel",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","admin","panel"],
+    "keywords": ["yii2","extension","admin","panel","users","manager"],
     "license": "MIT",
     "authors": [
         {
