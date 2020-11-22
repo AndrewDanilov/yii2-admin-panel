@@ -64,13 +64,13 @@ $config = [
 	'controllerMap' => [
 		'user' => [
 			'class' => 'andrewdanilov\adminpanel\controllers\UserController',
-			'viewPath' => '@backend/views/user', // your UserController views location
+			'viewPath' => '@backend/someotherlocation/views/user', // optional, custom UserController views location
 		],
 	],
 ];
 ```
 
-If you use own views (see instruction of using own views location above) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
+If you use custom views location (and it is not default '@backend/views' or other location defined in backend config) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
 
 Default `UserController` already have CRUD methods for managing user accounts. Use this link to get access to them:
 
