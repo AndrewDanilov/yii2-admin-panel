@@ -64,7 +64,7 @@ $config = [
 	'controllerMap' => [
 		'user' => [
 			'class' => 'andrewdanilov\adminpanel\controllers\UserController',
-			'viewPath' => '@backend/views', // your own views location
+			'viewPath' => '@backend/views/user', // your UserController views location
 		],
 	],
 ];

@@ -4,6 +4,7 @@ namespace andrewdanilov\adminpanel\controllers;
 use Yii;
 use yii\web\Response;
 use andrewdanilov\adminpanel\models\User;
+use andrewdanilov\adminpanel\models\UserSearch;
 use andrewdanilov\adminpanel\models\LoginForm;
 
 class UserController extends BackendController
