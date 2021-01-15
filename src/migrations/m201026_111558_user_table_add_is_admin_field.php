@@ -15,7 +15,7 @@ class m201026_111558_user_table_add_is_admin_field extends Migration
 		$this->addColumn('{{%user}}', 'is_admin', $this->tinyInteger(1)->unsigned()->notNull()->defaultValue(0));
 
 	    $this->insert('{{%user}}', [
-		    'name' => 'admin',
+		    'username' => 'admin',
 		    'email' => 'admin@example.com',
 		    'auth_key' => Yii::$app->security->generateRandomString(),
 		    'password_hash' => Yii::$app->security->generatePasswordHash('admin'),
