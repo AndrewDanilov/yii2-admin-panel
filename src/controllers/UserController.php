@@ -10,6 +10,17 @@ use andrewdanilov\adminpanel\models\LoginForm;
 class UserController extends BackendController
 {
 	/**
+	 * @inheritdoc
+	 */
+	public function init()
+	{
+		if (!is_dir($this->viewPath)) {
+			$this->viewPath = '@andrewdanilov/adminpanel/views/user';
+		}
+		parent::init();
+	}
+
+	/**
 	 * Login action.
 	 *
 	 * @return Response|string

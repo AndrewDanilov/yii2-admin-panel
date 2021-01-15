@@ -33,7 +33,8 @@ Do not forget to run migrations after extension updates too.
 Usage
 -----
 
-Copy directory `src/views` to your backend views location, then modify these templates to your needs.
+Copy `src/views` directory to your backend views location, then modify these templates to your needs.
+You do not need to copy the `src/views/user` directory if you want to use the default `@andrewdanilov/adminpanel/views/user`.
 
 In backend config place (or replace) `user` section inside `components`:
 
@@ -71,6 +72,7 @@ $config = [
 ```
 
 If you use custom views location (and it is not default '@backend/views' or other location defined in backend config) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
+If `viewPath` is defined but does not exist, the default `@andrewdanilov/adminpanel/views/user` will be used.
 
 Default `UserController` already have CRUD methods for managing user accounts. Use this link to get access to them:
 
