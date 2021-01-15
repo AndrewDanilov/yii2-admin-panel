@@ -21,6 +21,7 @@ class m201026_111558_user_table_add_is_admin_field extends Migration
 		    'password_hash' => Yii::$app->security->generatePasswordHash('admin'),
 		    'status' => 10,
 		    'created_at' => date('Y-m-d H:i:s'),
+		    'updated_at' => date('Y-m-d H:i:s'),
 		    'is_admin' => 1,
 	    ]);
     }
