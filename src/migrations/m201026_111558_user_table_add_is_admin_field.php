@@ -12,7 +12,17 @@ class m201026_111558_user_table_add_is_admin_field extends Migration
      */
     public function safeUp()
     {
-		$this->addColumn('user', 'is_admin', $this->tinyInteger(1)->unsigned()->notNull()->defaultValue(0));
+		$this->addColumn('{{%user}}', 'is_admin', $this->tinyInteger(1)->unsigned()->notNull()->defaultValue(0));
+
+	    $this->insert('{{%user}}', [
+		    'name' => 'admin',
+		    'email' => 'admin@example.com',
+		    'auth_key' => Yii::$app->security->generateRandomString(),
+		    'password_hash' => Yii::$app->security->generatePasswordHash('admin'),
+		    'status' => 10,
+		    'created_at' => date('Y-m-d H:i:s'),
+		    'is_admin' => 1,
+	    ]);
     }
 
     /**
@@ -20,6 +30,7 @@ class m201026_111558_user_table_add_is_admin_field extends Migration
      */
     public function safeDown()
     {
-        $this->dropColumn('user', 'is_admin');
+        $this->delete('{{%user}}', ['is_admin' => 1]);
+        $this->dropColumn('{{%user}}', 'is_admin');
     }
 }
