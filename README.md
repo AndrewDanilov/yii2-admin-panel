@@ -36,7 +36,7 @@ Usage
 Copy `src/views` directory to your backend views location, then modify these templates to your needs.
 You do not need to copy the `src/views/user` directory if you want to use the default `@andrewdanilov/adminpanel/views/user`.
 
-In backend config place (or replace) `user` section inside `components`:
+In backend main config place (or replace) `user` section inside `components`:
 
 ```php
 $config = [
@@ -55,9 +55,9 @@ $config = [
 ];
 ```
 
-Instead of default you can use your own access checker or user identity class, therefore replace correspondent _accessChecker_ or _identityClass_ properties of _user_ component within backend config. Then copy __src/AccessChecker.php__ if you replacing access checker and __src/models/User.php__ if you replacing identity class, and place them to your own location. Modify it, as you need. Do not forget to replace namespace definition of duplicated classes.
+Instead of default you can use your own access checker or user identity class, therefore replace correspondent _accessChecker_ or _identityClass_ properties of _user_ component within backend main config. Then copy __src/AccessChecker.php__ if you are replacing access checker and __src/models/User.php__ if you are replacing identity class, and place them to your own location. Modify it, as you need. Do not forget to replace namespace definition of duplicated classes.
 
-To use default extension's controllers add 'controllerMap' section to your backend config:
+To use default extension's controllers add 'controllerMap' section to your backend main config:
 
 ```php
 $config = [
@@ -71,7 +71,7 @@ $config = [
 ];
 ```
 
-If you use custom views location (and it is not default '@backend/views' or other location defined in backend config) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
+If you use custom views location (and it is not default '@backend/views' or other location defined in backend main config) with default extension's `UserController`, you need to set `viewPath` property in `controllerMap` section.
 If `viewPath` is defined but does not exist, the default `@andrewdanilov/adminpanel/views/user` will be used.
 
 Default `UserController` already have CRUD methods for managing user accounts. Use this link to get access to them:
@@ -132,3 +132,9 @@ use yii\grid\GridView;
 	],
 ]); ?>
 ```
+
+Access
+------
+
+Default user/password to enter admin area is admin/admin. You can change them throught the users section
+of admin-panel main menu
