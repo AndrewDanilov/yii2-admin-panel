@@ -4,6 +4,8 @@
 /* @var $model User */
 
 use andrewdanilov\adminpanel\models\User;
+use yii\bootstrap5\ActiveForm;
+use yii\bootstrap5\Html;
 
 if ($model->isNewRecord) {
 	$this->title = 'Новый пользователь';
@@ -12,7 +14,7 @@ if ($model->isNewRecord) {
 }
 ?>
 
-<?php $form = \yii\widgets\ActiveForm::begin() ?>
+<?php $form = ActiveForm::begin() ?>
 
 <?= $form->field($model, 'username')->textInput() ?>
 
@@ -24,6 +26,6 @@ if ($model->isNewRecord) {
 
 <?= $form->field($model, 'is_admin')->dropDownList(['Нет', 'Да']) ?>
 
-<?= \yii\helpers\Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+<?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
 
-<?php \yii\widgets\ActiveForm::end() ?>
+<?php ActiveForm::end() ?>

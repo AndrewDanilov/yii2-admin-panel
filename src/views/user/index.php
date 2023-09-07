@@ -4,41 +4,43 @@
 /* @var $searchModel UserSearch */
 /* @var $dataProvider \yii\data\ActiveDataProvider */
 
-$this->title = 'Пользователи';
-
-use yii\grid\GridView;
 use andrewdanilov\adminpanel\models\User;
 use andrewdanilov\adminpanel\models\UserSearch;
+use andrewdanilov\gridtools\FontawesomeActionColumn;
+use yii\grid\GridView;
+use yii\bootstrap5\Html;
+
+$this->title = 'Пользователи';
 
 ?>
 
-<div class="form-group">
-	<?= \yii\helpers\Html::a('Новый пользователь', ['update'], ['class' => 'btn btn-success']) ?>
-</div>
+    <div class="form-group">
+        <?= Html::a('Новый пользователь', ['update'], ['class' => 'btn btn-success']) ?>
+    </div>
 
 <?= GridView::widget([
-	'filterModel' => $searchModel,
-	'dataProvider' => $dataProvider,
-	'columns' => [
-		[
-			'attribute' => 'id',
-			'headerOptions' => ['width' => 100],
-		],
-		'username',
-		'email',
-		[
-			'attribute' => 'status',
-			'value' => function(User $model) {
-				$statuses = User::getStatuses();
-				return $statuses[$model->status];
-			},
-			'filter' => User::getStatuses(),
-		],
-		'is_admin:boolean',
+    'filterModel' => $searchModel,
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        [
+            'attribute' => 'id',
+            'headerOptions' => ['width' => 100],
+        ],
+        'username',
+        'email',
+        [
+            'attribute' => 'status',
+            'value' => function(User $model) {
+                $statuses = User::getStatuses();
+                return $statuses[$model->status];
+            },
+            'filter' => User::getStatuses(),
+        ],
+        'is_admin:boolean',
 
-		[
-			'class' => \andrewdanilov\gridtools\FontawesomeActionColumn::class,
-			'template' => '{update}{delete}',
-		]
-	]
+        [
+            'class' => FontawesomeActionColumn::class,
+            'template' => '{update}{delete}',
+        ]
+    ]
 ]) ?>
