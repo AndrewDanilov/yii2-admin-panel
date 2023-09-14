@@ -71,7 +71,7 @@ class LoginForm extends Model
 		if ($this->_user === null) {
 			$identityClass = Yii::$app->user->identityClass;
 			/* @var $identityClass IdentityInterface */
-			$this->_user = $identityClass::findByUsername($this->username);
+			$this->_user = $identityClass::findByUsernameOrEmail($this->username);
 		}
 
 		return $this->_user;

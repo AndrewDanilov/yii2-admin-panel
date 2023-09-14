@@ -39,7 +39,7 @@ $fieldOptions = [
         ->label(false)
         ->textInput([
             'class' => 'form-control form-control-user',
-            'placeholder' => 'Username',
+            'placeholder' => 'Username or E-mail',
         ])
     ?>
 
@@ -53,12 +53,12 @@ $fieldOptions = [
     ?>
 
     <?= $form->field($model, 'rememberMe', $fieldOptions)
-        ->checkbox()
+        ->checkbox()->label('Remember Me')
     ?>
 
     <hr>
 
-    <?= Html::submitButton('Войти', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
+    <?= Html::submitButton('Enter', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>
 
     <?php ActiveForm::end() ?>
 

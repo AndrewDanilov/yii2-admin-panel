@@ -66,6 +66,7 @@ $config = [
 		'user' => [
 			'class' => 'andrewdanilov\adminpanel\controllers\UserController',
 			'viewPath' => '@backend/someotherlocation/views/user', // optional, custom UserController views location
+			'loginFormClass' => 'backend/models/LoginForm', // optional, default is 'andrewdanilov\adminpanel\models\LoginForm'
 		],
 	],
 ];

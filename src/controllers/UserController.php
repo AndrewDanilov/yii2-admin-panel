@@ -5,10 +5,11 @@ use Yii;
 use yii\web\Response;
 use andrewdanilov\adminpanel\models\User;
 use andrewdanilov\adminpanel\models\UserSearch;
-use andrewdanilov\adminpanel\models\LoginForm;
 
 class UserController extends BackendController
 {
+    public $loginFormClass;
+
 	/**
 	 * @inheritdoc
 	 */
@@ -17,6 +18,9 @@ class UserController extends BackendController
 		if (!is_dir($this->viewPath)) {
 			$this->viewPath = '@andrewdanilov/adminpanel/views/user';
 		}
+        if (!$this->loginFormClass) {
+            $this->loginFormClass = 'andrewdanilov\adminpanel\models\LoginForm';
+        }
 		parent::init();
 	}
 
@@ -30,7 +34,7 @@ class UserController extends BackendController
 		if (!Yii::$app->user->isGuest) {
 			return $this->goHome();
 		}
-		$loginForm = new LoginForm();
+		$loginForm = new $this->loginFormClass;
 		if ($loginForm->load(Yii::$app->request->post()) && $loginForm->validate() && $loginForm->login()) {
 			return $this->goBack();
 		}
