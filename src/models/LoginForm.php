@@ -73,13 +73,17 @@ class LoginForm extends Model
 			/* @var $identityClass IdentityInterface */
             $user = $identityClass::findByUsernameOrEmail($this->username);
             if ($user !== null) {
-                if ($user->status === User::STATUS_INACTIVE) {
-                    $this->addError('username', 'Аккаунт пользователя не был активирован. Для активации перейдите по ссылке отправленной вам в письме после регистрации. Проверьте папку спам.');
-                } elseif ($user->status === User::STATUS_DELETED) {
-                    $this->addError('username', 'Аккаунт пользователя был удален или заблокирован.');
+                if ($user->status === User::STATUS_ACTIVE) {
+                    // everything is ok, returning found User
+                    $this->_user = $user;
+                } elseif ($user->status === User::STATUS_INACTIVE) {
+                    // user has not yet been activated
+                    $this->addError('username', 'User account has not yet been activated.');
+                } else {
+                    // another status error
+                    $this->addError('username', 'User account has been deleted or blocked.');
                 }
             }
-            $this->_user = $user;
 		}
 
 		return $this->_user;
