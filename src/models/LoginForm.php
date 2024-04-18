@@ -71,7 +71,15 @@ class LoginForm extends Model
 		if ($this->_user === null) {
 			$identityClass = Yii::$app->user->identityClass;
 			/* @var $identityClass IdentityInterface */
-			$this->_user = $identityClass::findByUsernameOrEmail($this->username);
+            $user = $identityClass::findByUsernameOrEmail($this->username);
+            if ($user !== null) {
+                if ($user->status === User::STATUS_INACTIVE) {
+                    $this->addError('username', 'Аккаунт пользователя не был активирован. Для активации перейдите по ссылке отправленной вам в письме после регистрации. Проверьте папку спам.');
+                } elseif ($user->status === User::STATUS_DELETED) {
+                    $this->addError('username', 'Аккаунт пользователя был удален или заблокирован.');
+                }
+            }
+            $this->_user = $user;
 		}
 
 		return $this->_user;

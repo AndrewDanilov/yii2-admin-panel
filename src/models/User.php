@@ -98,7 +98,7 @@ class User extends ActiveRecord implements IdentityInterface
 	 */
 	public static function findByUsername($username)
 	{
-		return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+		return static::findOne(['username' => $username]);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class User extends ActiveRecord implements IdentityInterface
 	 */
 	public static function findByEmail($email)
 	{
-		return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+		return static::findOne(['email' => $email]);
 	}
 
 	/**
