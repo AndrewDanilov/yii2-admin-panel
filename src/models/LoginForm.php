@@ -29,17 +29,17 @@ class LoginForm extends Model
 			['rememberMe', 'boolean'],
 			// password is validated by validatePassword()
 			['password', 'validatePassword'],
+            // status of registered user is validated by validateStatus()
+            ['username', 'validateStatus'],
 		];
 	}
 
 	/**
 	 * Validates the password.
-	 * This method serves as the inline validation for password.
 	 *
 	 * @param string $attribute the attribute currently being validated
-	 * @param array $params the additional name-value pairs given in the rule
 	 */
-	public function validatePassword($attribute, $params)
+	public function validatePassword($attribute)
 	{
 		if (!$this->hasErrors()) {
 			$user = $this->getUser();
@@ -48,6 +48,27 @@ class LoginForm extends Model
 			}
 		}
 	}
+
+    /**
+     * Validates status of user.
+     *
+     * @param string $attribute the attribute currently being validated
+     */
+    public function validateStatus($attribute)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if ($user !== null && $user->status !== User::STATUS_ACTIVE) {
+                if ($user->status === User::STATUS_INACTIVE) {
+                    // user has not yet been activated
+                    $this->addError($attribute, 'User account has not yet been activated.');
+                } else {
+                    // another status error
+                    $this->addError($attribute, 'Аккаунт пользователя был удален или заблокирован.');
+                }
+            }
+        }
+    }
 
 	/**
 	 * Logs in a user using the provided username and password.
@@ -71,19 +92,7 @@ class LoginForm extends Model
 		if ($this->_user === null) {
 			$identityClass = Yii::$app->user->identityClass;
 			/* @var $identityClass IdentityInterface */
-            $user = $identityClass::findByUsernameOrEmail($this->username);
-            if ($user !== null) {
-                if ($user->status === User::STATUS_ACTIVE) {
-                    // everything is ok, returning found User
-                    $this->_user = $user;
-                } elseif ($user->status === User::STATUS_INACTIVE) {
-                    // user has not yet been activated
-                    $this->addError('username', 'User account has not yet been activated.');
-                } else {
-                    // another status error
-                    $this->addError('username', 'User account has been deleted or blocked.');
-                }
-            }
+            $this->_user = $identityClass::findByUsernameOrEmail($this->username);
 		}
 
 		return $this->_user;
