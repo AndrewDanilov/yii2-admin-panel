@@ -256,7 +256,7 @@ class User extends ActiveRecord implements IdentityInterface
 	{
 		return [
 			static::STATUS_DELETED => 'Удален',
-			static::STATUS_INACTIVE => 'Неактивиен',
+			static::STATUS_INACTIVE => 'Неактивен',
 			static::STATUS_ACTIVE => 'Активен',
 		];
 	}
